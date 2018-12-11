@@ -6,24 +6,7 @@ The goals / steps of this project are the following:
 * Design, train and test a model architecture
 * Use the model to make predictions on new images
 * Analyze the softmax probabilities of the new images
-* Summarize the results with a written report
-
-
-[//]: # (Image References)
-
-[image1]: ./examples/BefViz.png "Visualization"
-[image2]: ./examples/GrayNorm.png "Grayscaling+Normalization result"
-[image3]: ./examples/Resized.png "Resize"
-[image4]: ./RoadSigns/ID3.png "Traffic Sign 1"
-[image5]: ./RoadSigns/ID11.png "Traffic Sign 2"
-[image6]: ./RoadSigns/ID12.png "Traffic Sign 3"
-[image7]: ./RoadSigns/ID18.png "Traffic Sign 4"
-[image8]: ./RoadSigns/ID25.png "Traffic Sign 5"
-[image9]: ./examples/AftViz.png "Visualization after augmenting data"
-[image10]: ./RoadSigns/ID38.png "Traffic Sign 6"
-[image11]: ./examples/Warped.png "Warp"
-[image12]: ./examples/Bright.png "Brightness Change"
-[image13]: ./examples/Translated.png "Translate"
+* Summarize the results with a written report 
 ---
 
 ### Data Set Summary & Exploration
@@ -43,7 +26,7 @@ signs data set:
 
 Here is a bar chart showing how the training data is distribuited across labels:
 
-![alt text][image1]
+!["Visualization"](./examples/BefViz.png)
 
 ### Design and Test a Model Architecture
 
@@ -53,7 +36,7 @@ As a first step, I decided to convert the images to grayscale because it would a
 
 Here is an example of a traffic sign image before and after grayscaling and normalization:
 
-![alt text][image2]
+!["Grayscaling+Normalization result"](./examples/GrayNorm.png)
 
 As a last step, I normalized the image data by pixel=(pixel-128)/128 because that will make the mean of all input values(pixels) closer to 0, since before they ranged from 0 to 255.
 
@@ -64,22 +47,22 @@ To add more data to the the data set, I used the following techniques because it
 Here is an example of the 4 images added to the training data if the original image's label had less than 1000 samples:
 
 Slight Random Resize Along Width and Height:
-![alt text][image3]
+!["Resize"](./examples/Resized.png)
 
 Slight Random Warp:
-![alt text][image11]
+!["Warp"](./examples/Warped.png)
 
 Slight Random Brightness Change:
-![alt text][image12]
+!["Brightness Change"](./examples/Bright.png)
 
 Slight Random Translation Along Width and Height(pixels that would be translated out of image are added to other side):
-![alt text][image13]
+!["Translate"](./examples/Translated.png)
 
 
 The difference between the original data set and the augmented data set is the following all labels that had less than 1000 samples in the training set now have 5 times as many making the smallest number of samples for a label be 900.
 
 Here is a bar chart showing how the training data is distribuited across labels after data augmentation:
-![alt text][image9]
+!["Visualization after augmenting data"](./examples/AftViz.png)
 
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
@@ -144,8 +127,8 @@ If a well known architecture was chosen:
 
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6]
-![alt text][image7] ![alt text][image8] ![alt text][image10]
+!["Traffic Sign 1"](./RoadSigns/ID3.png) !["Traffic Sign 2"](./RoadSigns/ID11.png) !["Traffic Sign 3"](./RoadSigns/ID12.png)
+!["Traffic Sign 4"](./RoadSigns/ID18.png) !["Traffic Sign 5"](./RoadSigns/ID25.png) !["Traffic Sign 6"](./RoadSigns/ID38.png)
 
 The image of the 60km/h sign might be difficult to classify since it has part of another sign above it. Since the image of the priority road sign has an all white background it might be different from the types of backgrounds found for signs in the training set making it difficult to classify, I think the same might be true for some of the other signs as their backgrounds are pretty solid colors like the clear blue sky, or a plain white wall.
 
@@ -170,6 +153,7 @@ The model was able to correctly guess 1 of the 6 traffic signs, which gives an a
 For all the images it pedicted the same 5 signs with the highest probability for any sign being .478, all had Road work as their top probability, and the order of the other 4 had similar probabilities, .05-.15, except for the keep right which had keep right(the correct label) as its second highest probability with .25
 
 Actual:Road Work
+
 | Probability         	|     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
 | .478         			| Road Work   									|
@@ -179,6 +163,7 @@ Actual:Road Work
 | .062				    | No passing									|
 
 Actual:Keep Right
+
 | Probability         	|     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
 | .329         			| Road Work   									|
@@ -188,6 +173,7 @@ Actual:Keep Right
 | .045				    | No passing									|
 
 Actual:Right-of-way next intersection
+
 | Probability         	|     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
 | .455         			| Road Work   									|
@@ -197,6 +183,7 @@ Actual:Right-of-way next intersection
 | .052				    | No passing									|
 
 Actual:Priority road
+
 | Probability         	|     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
 | .420         			| Road Work   									|
@@ -206,6 +193,7 @@ Actual:Priority road
 | .077				    | No passing									|
 
 Actual:General caution
+
 | Probability         	|     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
 | .473         			| Road Work   									|
@@ -215,6 +203,7 @@ Actual:General caution
 | .048				    | No passing									|
 
 Actual:60km/h
+
 | Probability         	|     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
 | .427         			| Road Work   									|
